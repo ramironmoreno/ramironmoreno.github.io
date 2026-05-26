@@ -32,10 +32,6 @@
       color: inherit;
     }
 
-    /* ========================= */
-    /* NAVBAR */
-    /* ========================= */
-
     nav {
       position: fixed;
       top: 0;
@@ -59,30 +55,16 @@
       color: #22c55e;
     }
 
-    /* ========================= */
-    /* HERO */
-    /* ========================= */
-
     header {
       min-height: 100vh;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       text-align: center;
-
       padding: 80px 20px;
-
       background:
-        radial-gradient(circle at top left,
-          rgba(34, 197, 94, 0.22),
-          transparent 30%),
-
-        radial-gradient(circle at bottom right,
-          rgba(37, 99, 235, 0.24),
-          transparent 30%),
-
+        radial-gradient(circle at top left, rgba(34, 197, 94, 0.22), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(37, 99, 235, 0.24), transparent 30%),
         #07111f;
     }
 
@@ -92,17 +74,11 @@
 
     .tag {
       display: inline-block;
-
       color: #22c55e;
-
       border: 1px solid rgba(34, 197, 94, 0.45);
-
       background: rgba(34, 197, 94, 0.08);
-
       padding: 8px 16px;
-
       border-radius: 999px;
-
       margin-bottom: 22px;
     }
 
@@ -122,11 +98,47 @@
       margin-bottom: 40px;
     }
 
-    .hero-buttons {
+    .hero-layout {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 320px;
+    }
+
+    .hero-image {
+      flex: 0 0 340px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-image img {
+      width: 340px;
+      height: 340px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid rgba(34, 197, 94, 0.45);
+      box-shadow: 0 0 35px rgba(34, 197, 94, 0.18);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero-image img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 50px rgba(34, 197, 94, 0.28);
+    }
+
+    .hero-buttons,
+    .buttons {
       display: flex;
       justify-content: center;
       gap: 14px;
       flex-wrap: wrap;
+      margin-top: 18px;
       margin-bottom: 35px;
     }
 
@@ -142,19 +154,11 @@
       50% { transform: translateY(8px); }
     }
 
-    /* ========================= */
-    /* SECTIONS */
-    /* ========================= */
-
     section {
       min-height: 100vh;
-
       max-width: 1180px;
-
       margin: auto;
-
       padding: 100px 20px;
-
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -173,70 +177,40 @@
       color: #94a3b8;
     }
 
-    /* ========================= */
-    /* REVEAL EFFECT */
-    /* ========================= */
-
     .reveal {
       opacity: 0;
-
-      transform:
-        translateY(70px)
-        scale(0.96);
-
+      transform: translateY(70px) scale(0.96);
       filter: blur(8px);
-
-      transition:
-        opacity 0.9s ease,
-        transform 0.9s ease,
-        filter 0.9s ease;
+      transition: opacity 0.9s ease, transform 0.9s ease, filter 0.9s ease;
     }
 
     .reveal.active {
       opacity: 1;
-
-      transform:
-        translateY(0)
-        scale(1);
-
+      transform: translateY(0) scale(1);
       filter: blur(0);
     }
 
     .reveal.from-left {
-      transform:
-        translateX(-70px)
-        scale(0.96);
+      transform: translateX(-70px) scale(0.96);
     }
 
     .reveal.from-right {
-      transform:
-        translateX(70px)
-        scale(0.96);
+      transform: translateX(70px) scale(0.96);
     }
 
     .reveal.from-left.active,
     .reveal.from-right.active {
-      transform:
-        translateX(0)
-        scale(1);
+      transform: translateX(0) scale(1);
     }
 
-    /* ========================= */
-    /* ABOUT */
-    /* ========================= */
-
     .about,
-    .contact-box {
+    .contact-box,
+    .experience-item {
       background: rgba(15, 23, 42, 0.82);
-
       border: 1px solid rgba(148, 163, 184, 0.16);
-
       border-radius: 24px;
-
       padding: 30px;
-
-      box-shadow:
-        0 22px 55px rgba(0,0,0,0.28);
+      box-shadow: 0 22px 55px rgba(0,0,0,0.28);
     }
 
     .about p,
@@ -245,9 +219,69 @@
       font-size: 1.05rem;
     }
 
-    /* ========================= */
-    /* CARDS */
-    /* ========================= */
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 34px;
+    }
+
+    .experience-divider {
+      color: #22c55e;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+    }
+
+    .experience-header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .experience-logo {
+      width: 68px;
+      height: 68px;
+      object-fit: cover;
+      border-radius: 50%;
+      background: #ffffff;
+      padding: 5px;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+
+    .experience-header h3 {
+      font-size: 1.45rem;
+      margin-bottom: 2px;
+    }
+
+    .experience-role {
+      display: block;
+      color: #e2e8f0;
+      font-weight: bold;
+      margin-bottom: 2px;
+    }
+
+    .experience-date {
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+
+    .experience-tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .experience-item ul {
+      padding-left: 22px;
+    }
+
+    .experience-item li {
+      color: #cbd5e1;
+      margin-bottom: 10px;
+    }
 
     .certificates-list {
       display: flex;
@@ -256,121 +290,49 @@
     }
 
     .certificate-card {
-
       display: grid;
-
-      grid-template-columns:
-        380px 1fr;
-
+      grid-template-columns: 380px 1fr;
       gap: 30px;
-
-      background:
-        rgba(15, 23, 42, 0.82);
-
-      border:
-        1px solid rgba(148, 163, 184, 0.16);
-
+      background: rgba(15, 23, 42, 0.82);
+      border: 1px solid rgba(148, 163, 184, 0.16);
       border-radius: 26px;
-
       padding: 24px;
-
-      box-shadow:
-        0 22px 55px rgba(0,0,0,0.28);
-
-      transition:
-        transform 0.25s ease,
-        border-color 0.25s ease;
+      box-shadow: 0 22px 55px rgba(0,0,0,0.28);
+      transition: transform 0.25s ease, border-color 0.25s ease;
     }
 
     .certificate-card:hover {
       transform: translateY(-5px);
-
-      border-color:
-        rgba(34, 197, 94, 0.55);
+      border-color: rgba(34, 197, 94, 0.55);
     }
 
     .certificate-image-link {
       display: block;
-
       border-radius: 20px;
-
       overflow: hidden;
-
       min-height: 250px;
-
-      background:
-        rgba(2, 6, 23, 0.6);
+      background: rgba(2, 6, 23, 0.6);
     }
 
     .certificate-image-link img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-
-      transition:
-        transform 0.28s ease,
-        opacity 0.28s ease;
+      transition: transform 0.28s ease, opacity 0.28s ease;
     }
-    
-.tesina-logo {
-  width: 75%;
-  height: auto !important;
-  object-fit: contain !important;
-  margin: auto;
-  display: block;
-  padding: 25px;
-}
 
-.hero-layout {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 60px;
-  flex-wrap: wrap;
-}
-
-.hero-text {
-  flex: 1;
-  min-width: 320px;
-}
-
-.hero-image {
-  flex: 0 0 340px;
-  display: flex;
-  justify-content: center;
-}
-
-.hero-image img {
-
-  width: 340px;
-  height: 340px;
-
-  object-fit: cover;
-
-  border-radius: 50%;
-
-  border: 3px solid rgba(34, 197, 94, 0.45);
-
-  box-shadow:
-    0 0 35px rgba(34, 197, 94, 0.18);
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.hero-image img:hover {
-
-  transform: scale(1.03);
-
-  box-shadow:
-    0 0 50px rgba(34, 197, 94, 0.28);
-
-}
-    
     .certificate-image-link:hover img {
       transform: scale(1.03);
       opacity: 0.92;
+    }
+
+    .tesina-logo {
+      width: 75%;
+      height: auto !important;
+      object-fit: contain !important;
+      margin: auto;
+      display: block;
+      padding: 25px;
     }
 
     .certificate-content h3 {
@@ -387,17 +349,10 @@
 
     .meta-item {
       color: #bbf7d0;
-
-      background:
-        rgba(34, 197, 94, 0.10);
-
-      border:
-        1px solid rgba(34, 197, 94, 0.22);
-
+      background: rgba(34, 197, 94, 0.10);
+      border: 1px solid rgba(34, 197, 94, 0.22);
       padding: 7px 11px;
-
       border-radius: 999px;
-
       font-size: 0.86rem;
     }
 
@@ -415,29 +370,12 @@
       color: #cbd5e1;
     }
 
-    /* ========================= */
-    /* BUTTONS */
-    /* ========================= */
-
-    .buttons {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-    }
-
     .btn {
       padding: 10px 14px;
-
       border-radius: 10px;
-
       font-size: 0.9rem;
-
       font-weight: bold;
-
-      transition:
-        transform 0.2s ease,
-        opacity 0.2s ease;
+      transition: transform 0.2s ease, opacity 0.2s ease;
     }
 
     .btn:hover {
@@ -451,18 +389,10 @@
     }
 
     .btn-secondary {
-      background:
-        rgba(148, 163, 184, 0.14);
-
-      border:
-        1px solid rgba(148, 163, 184, 0.20);
-
+      background: rgba(148, 163, 184, 0.14);
+      border: 1px solid rgba(148, 163, 184, 0.20);
       color: #f8fafc;
     }
-
-    /* ========================= */
-    /* TESINA GALLERY */
-    /* ========================= */
 
     .project-gallery {
       display: flex;
@@ -473,51 +403,35 @@
 
     .project-gallery img {
       width: 220px;
-
       border-radius: 14px;
-
-      border:
-        1px solid rgba(148, 163, 184, 0.16);
-
+      border: 1px solid rgba(148, 163, 184, 0.16);
       transition: transform 0.25s ease;
-
-      background:
-        rgba(2, 6, 23, 0.5);
+      background: rgba(2, 6, 23, 0.5);
     }
 
     .project-gallery img:hover {
       transform: scale(1.03);
     }
 
-    /* ========================= */
-    /* FOOTER */
-    /* ========================= */
-
     footer {
       text-align: center;
-
       padding: 30px;
-
       color: #94a3b8;
-
-      border-top:
-        1px solid rgba(148, 163, 184, 0.16);
+      border-top: 1px solid rgba(148, 163, 184, 0.16);
     }
 
-    /* ========================= */
-    /* MOBILE */
-    /* ========================= */
-
     @media (max-width: 900px) {
-
       .certificate-card {
         grid-template-columns: 1fr;
       }
 
+      .hero-layout {
+        justify-content: center;
+        text-align: center;
+      }
     }
 
     @media (max-width: 600px) {
-
       nav a {
         display: block;
         margin: 10px 0;
@@ -527,6 +441,9 @@
         min-height: auto;
       }
 
+      .experience-header {
+        align-items: flex-start;
+      }
     }
 
   </style>
@@ -535,85 +452,68 @@
 
 <body>
 
-  <!-- ========================= -->
-  <!-- NAVBAR -->
-  <!-- ========================= -->
-
   <nav>
     <a href="#inicio">Inicio</a>
     <a href="#sobre-mi">Sobre mí</a>
+    <a href="#experiencia">Experiencia</a>
     <a href="#certificados">Certificaciones y Trabajos</a>
     <a href="#contacto">Contacto</a>
   </nav>
 
+  <header id="inicio">
 
-  <!-- ========================= -->
-  <!-- HERO -->
-  <!-- ========================= -->
+    <div class="hero reveal active">
 
- <header id="inicio">
+      <div class="hero-layout">
 
-  <div class="hero reveal active">
+        <div class="hero-text">
 
-    <div class="hero-layout">
+          <div class="tag">
+            Portfolio digital verificable
+          </div>
 
-      <!-- TEXTO -->
+          <h1>
+            Ramiro <span>Moreno</span>
+          </h1>
 
-      <div class="hero-text">
+          <p>
+            Estudiante avanzado de Ingeniería Industrial |
+            Operaciones & Supply Chain |
+            Data Analytics
+          </p>
 
-        <div class="tag">
-          Portfolio digital verificable
-        </div>
+          <div class="hero-buttons">
 
-        <h1>
-          Ramiro <span>Moreno</span>
-        </h1>
+            <a
+              class="btn btn-secondary"
+              href="https://www.linkedin.com/in/ramironmoreno/"
+              target="_blank"
+            >
+              LinkedIn
+            </a>
 
-        <p>
-          Estudiante avanzado de Ingeniería Industrial |
-          Operaciones & Supply Chain |
-          Data Analytics
-        </p>
+          </div>
 
-        <div class="hero-buttons">
-
-          <a
-            class="btn btn-secondary"
-            href="https://www.linkedin.com/in/ramironmoreno/"
-            target="_blank"
-          >
-            LinkedIn
+          <a class="scroll-down" href="#sobre-mi">
+            ↓
           </a>
 
         </div>
 
-        <a class="scroll-down" href="#sobre-mi">
-          ↓
-        </a>
+        <div class="hero-image">
 
-      </div>
+          <img
+            src="imagenes/ramiro-moreno.png"
+            alt="Ramiro Moreno"
+          />
 
-
-      <!-- FOTO -->
-
-      <div class="hero-image">
-
-        <img
-          src="imagenes/ramiro-moreno.png"
-          alt="Ramiro Moreno"
-        />
+        </div>
 
       </div>
 
     </div>
 
-  </div>
-
-</header>
-
-  <!-- ========================= -->
-  <!-- SOBRE MI -->
-  <!-- ========================= -->
+  </header>
 
   <section id="sobre-mi">
 
@@ -647,10 +547,152 @@
 
   </section>
 
+  <section id="experiencia">
 
-  <!-- ========================= -->
-  <!-- CERTIFICADOS -->
-  <!-- ========================= -->
+    <div class="section-title reveal">
+
+      <h2>Mi experiencia laboral</h2>
+
+      <p>
+        Experiencia profesional, responsabilidades principales e industrias en las que me desarrollé.
+      </p>
+
+    </div>
+
+    <div class="experience-list">
+
+      <article class="experience-item reveal from-left">
+
+        <div class="experience-divider">
+          • ——————————————————————
+        </div>
+
+        <div class="experience-header">
+
+          <img
+            src="imagenes/stellantis.jpg"
+            alt="Stellantis Argentina"
+            class="experience-logo"
+          />
+
+          <div>
+
+            <h3>Stellantis Argentina</h3>
+
+            <span class="experience-role">
+              Sales Operations Intern
+            </span>
+
+            <p class="experience-date">
+              Abr 2025 - Presente
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="experience-tags">
+
+          <span class="meta-item">Industria Automotriz</span>
+          <span class="meta-item">Sales Operations</span>
+          <span class="meta-item">Supply Chain</span>
+          <span class="meta-item">Data Analytics</span>
+          <span class="meta-item">Power BI</span>
+
+        </div>
+
+        <ul>
+
+          <li>
+            Creación y seguimiento de órdenes de producción entre áreas comerciales y operativas para grupos PSA y FCA.
+          </li>
+
+          <li>
+            Monitoreo de envíos marítimos internacionales y actualización de reportes de seguimiento logístico.
+          </li>
+
+          <li>
+            Elaboración y análisis de informes de producción, facturación y patentamientos.
+          </li>
+
+          <li>
+            Desarrollo de tableros de control en Power BI y migración de reportes desde Excel.
+          </li>
+
+        </ul>
+
+      </article>
+
+      <article class="experience-item reveal from-right">
+
+        <div class="experience-divider">
+          • ——————————————————————
+        </div>
+
+        <div class="experience-header">
+
+          <img
+            src="imagenes/marshall.jpg"
+            alt="Marshall Moffat"
+            class="experience-logo"
+          />
+
+          <div>
+
+            <h3>Marshall Moffat</h3>
+
+            <span class="experience-role">
+              Pasante en Supply Chain y Procesos
+            </span>
+
+            <p class="experience-date">
+              Feb 2024 - Mar 2025
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="experience-tags">
+
+          <span class="meta-item">Industria Textil</span>
+          <span class="meta-item">Supply Chain</span>
+          <span class="meta-item">Procesos</span>
+          <span class="meta-item">Compras</span>
+          <span class="meta-item">Power BI</span>
+          <span class="meta-item">Normas ISO</span>
+
+        </div>
+
+        <ul>
+
+          <li>
+            Planificación de recursos, gestión de stock, seguimiento de pedidos y proveedores.
+          </li>
+
+          <li>
+            Gestión de KPIs mediante Excel y tableros de control en Power BI.
+          </li>
+
+          <li>
+            Revisión y actualización de procedimientos y formularios.
+          </li>
+
+          <li>
+            Participación en auditorías de normas ISO 9001, ISO 14001 e ISO 45001.
+          </li>
+
+          <li>
+            Creación de órdenes de compra, asistencia en negociación con proveedores y validación de pagos.
+          </li>
+
+        </ul>
+
+      </article>
+
+    </div>
+
+  </section>
 
   <section id="certificados">
 
@@ -667,13 +709,7 @@
 
     </div>
 
-
     <div class="certificates-list">
-
-
-      <!-- ========================= -->
-      <!-- GAS Y PETROLEO -->
-      <!-- ========================= -->
 
       <article class="certificate-card reveal from-left">
 
@@ -741,12 +777,6 @@
         </div>
 
       </article>
-
-
-
-      <!-- ========================= -->
-      <!-- DATA ANALYTICS -->
-      <!-- ========================= -->
 
       <article class="certificate-card reveal from-right">
 
@@ -848,12 +878,6 @@
 
       </article>
 
-
-
-      <!-- ========================= -->
-      <!-- TESINA -->
-      <!-- ========================= -->
-
       <article class="certificate-card reveal from-left">
 
         <a
@@ -862,11 +886,11 @@
           target="_blank"
         >
 
-<img
-  class="tesina-logo"
-  src="imagenes/valvex-logo.jpg"
-  alt="Tesina Industrial"
-/>
+          <img
+            class="tesina-logo"
+            src="imagenes/valvex-logo.jpg"
+            alt="Tesina Industrial"
+          />
 
         </a>
 
@@ -874,6 +898,7 @@
 
           <h3>Trabajo Integrador Anual - Tesina Industrial</h3>
           <h3>Valvex</h3>
+
           <div class="certificate-meta">
 
             <span class="meta-item">
@@ -887,11 +912,10 @@
             <span class="meta-item">
               Evaluación económica y financiera
             </span>
-            
+
             <span class="meta-item">
               Análisis de mercados
             </span>
-
 
           </div>
 
@@ -902,20 +926,17 @@
             <p>
               Dimensionar comercialmente, técnicamente, económicamente y financieramente una empresa dedicada
               a la producción y comercialización de válvulas de acero inoxidable. El trabajo abarca el análisis del mercado,
-              estimación de ventas por año, desarrollar el proceso productivo junto a la maquinaria óptima, estimar y analizar indicadores 
-              económicos-financieros cómo por ejemplo EBIDTA, ROI, Payback, TIR, TOR, VAN, entre otros.
+              estimación de ventas por año, desarrollo del proceso productivo junto a la maquinaria óptima, y estimación
+              y análisis de indicadores económico-financieros como EBITDA, ROI, Payback, TIR, TOR y VAN, entre otros.
             </p>
 
           </div>
-
-
-          <!-- GALERIA -->
 
           <div class="project-gallery">
 
             <img
               src="imagenes/valvula.jpg"
-              alt="Valvulas"
+              alt="Válvulas"
             >
 
             <img
@@ -924,9 +945,6 @@
             >
 
           </div>
-
-
-          <!-- BOTONES -->
 
           <div class="buttons">
 
@@ -972,12 +990,6 @@
 
   </section>
 
-
-
-  <!-- ========================= -->
-  <!-- CONTACTO -->
-  <!-- ========================= -->
-
   <section id="contacto">
 
     <div class="section-title reveal">
@@ -990,7 +1002,7 @@
 
       <p>
         Podés ver mi perfil profesional actualizado
-        en LinkedIn. O bien, contactarme a través mi correo personal.
+        en LinkedIn. O bien, contactarme a través de mi correo personal.
       </p>
 
       <div class="buttons">
@@ -1016,11 +1028,6 @@
 
   </section>
 
-
-  <!-- ========================= -->
-  <!-- FOOTER -->
-  <!-- ========================= -->
-
   <footer>
 
     <p>
@@ -1030,12 +1037,6 @@
 
   </footer>
 
-
-
-  <!-- ========================= -->
-  <!-- REVEAL SCRIPT -->
-  <!-- ========================= -->
-
   <script>
 
     const revealElements =
@@ -1044,21 +1045,21 @@
     const observer =
       new IntersectionObserver((entries) => {
 
-      entries.forEach((entry) => {
+        entries.forEach((entry) => {
 
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
 
-        else {
-          entry.target.classList.remove('active');
-        }
+          else {
+            entry.target.classList.remove('active');
+          }
 
+        });
+
+      }, {
+        threshold: 0.18
       });
-
-    }, {
-      threshold: 0.18
-    });
 
     revealElements.forEach((element) =>
       observer.observe(element)
