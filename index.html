@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio | Ramiro Moreno</title>
+
+  <title>Ramiro Moreno | Portfolio</title>
 
   <style>
+
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
       font-family: Arial, Helvetica, sans-serif;
     }
 
@@ -20,49 +23,67 @@
     body {
       background: #07111f;
       color: #f8fafc;
-      line-height: 1.6;
       overflow-x: hidden;
+      line-height: 1.6;
     }
 
     a {
-      color: inherit;
       text-decoration: none;
+      color: inherit;
     }
 
+    /* ========================= */
+    /* NAVBAR */
+    /* ========================= */
+
     nav {
-      background: rgba(7, 17, 31, 0.84);
-      backdrop-filter: blur(12px);
-      padding: 15px;
-      text-align: center;
-      border-bottom: 1px solid rgba(148, 163, 184, 0.16);
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 20;
+      width: 100%;
+      padding: 18px;
+      background: rgba(7, 17, 31, 0.82);
+      backdrop-filter: blur(10px);
+      z-index: 999;
+      text-align: center;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.12);
     }
 
     nav a {
-      margin: 0 15px;
+      margin: 0 16px;
       color: #e2e8f0;
       font-weight: bold;
-      font-size: 0.95rem;
+      transition: 0.3s;
     }
 
     nav a:hover {
       color: #22c55e;
     }
 
+    /* ========================= */
+    /* HERO */
+    /* ========================= */
+
     header {
       min-height: 100vh;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 90px 20px;
-      background:
-        radial-gradient(circle at top left, rgba(34, 197, 94, 0.22), transparent 34%),
-        radial-gradient(circle at bottom right, rgba(37, 99, 235, 0.25), transparent 34%),
-        #07111f;
+
       text-align: center;
-      position: relative;
+
+      padding: 80px 20px;
+
+      background:
+        radial-gradient(circle at top left,
+          rgba(34, 197, 94, 0.22),
+          transparent 30%),
+
+        radial-gradient(circle at bottom right,
+          rgba(37, 99, 235, 0.24),
+          transparent 30%),
+
+        #07111f;
     }
 
     .hero {
@@ -71,20 +92,24 @@
 
     .tag {
       display: inline-block;
+
       color: #22c55e;
+
       border: 1px solid rgba(34, 197, 94, 0.45);
+
       background: rgba(34, 197, 94, 0.08);
-      padding: 8px 14px;
+
+      padding: 8px 16px;
+
       border-radius: 999px;
-      font-size: 0.9rem;
+
       margin-bottom: 22px;
-      letter-spacing: 0.4px;
     }
 
     header h1 {
-      font-size: clamp(2.8rem, 8vw, 5.8rem);
-      line-height: 1.05;
+      font-size: clamp(3rem, 8vw, 6rem);
       margin-bottom: 18px;
+      line-height: 1.05;
     }
 
     header h1 span {
@@ -92,10 +117,9 @@
     }
 
     header p {
-      font-size: 1.2rem;
       color: #cbd5e1;
-      max-width: 780px;
-      margin: 0 auto 30px;
+      font-size: 1.2rem;
+      margin-bottom: 40px;
     }
 
     .hero-buttons {
@@ -103,35 +127,65 @@
       justify-content: center;
       gap: 14px;
       flex-wrap: wrap;
-      margin-bottom: 42px;
+      margin-bottom: 35px;
     }
 
     .scroll-down {
+      font-size: 2rem;
       color: #94a3b8;
-      font-size: 1.8rem;
       animation: bounce 1.8s infinite;
       display: inline-block;
     }
 
     @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
+      0%,100% { transform: translateY(0); }
       50% { transform: translateY(8px); }
     }
 
+    /* ========================= */
+    /* SECTIONS */
+    /* ========================= */
+
     section {
       min-height: 100vh;
+
       max-width: 1180px;
-      margin: 0 auto;
-      padding: 95px 20px;
+
+      margin: auto;
+
+      padding: 100px 20px;
+
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
+    .section-title {
+      margin-bottom: 35px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #94a3b8;
+    }
+
+    /* ========================= */
+    /* REVEAL EFFECT */
+    /* ========================= */
+
     .reveal {
       opacity: 0;
-      transform: translateY(70px) scale(0.96);
+
+      transform:
+        translateY(70px)
+        scale(0.96);
+
       filter: blur(8px);
+
       transition:
         opacity 0.9s ease,
         transform 0.9s ease,
@@ -140,162 +194,194 @@
 
     .reveal.active {
       opacity: 1;
-      transform: translateY(0) scale(1);
+
+      transform:
+        translateY(0)
+        scale(1);
+
       filter: blur(0);
     }
 
     .reveal.from-left {
-      transform: translateX(-70px) scale(0.96);
+      transform:
+        translateX(-70px)
+        scale(0.96);
     }
 
     .reveal.from-right {
-      transform: translateX(70px) scale(0.96);
+      transform:
+        translateX(70px)
+        scale(0.96);
     }
 
     .reveal.from-left.active,
     .reveal.from-right.active {
-      transform: translateX(0) scale(1);
+      transform:
+        translateX(0)
+        scale(1);
     }
 
-    .section-title {
-      margin-bottom: 30px;
+    /* ========================= */
+    /* ABOUT */
+    /* ========================= */
+
+    .about,
+    .contact-box {
+      background: rgba(15, 23, 42, 0.82);
+
+      border: 1px solid rgba(148, 163, 184, 0.16);
+
+      border-radius: 24px;
+
+      padding: 30px;
+
+      box-shadow:
+        0 22px 55px rgba(0,0,0,0.28);
     }
 
-    h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      margin-bottom: 8px;
-      color: #f8fafc;
-    }
-
-    .section-title p {
-      color: #94a3b8;
-      max-width: 800px;
+    .about p,
+    .contact-box p {
+      color: #cbd5e1;
       font-size: 1.05rem;
     }
 
-    .about, .contact-box, .skills-box {
-      background: rgba(15, 23, 42, 0.82);
-      border: 1px solid rgba(148, 163, 184, 0.16);
-      border-radius: 24px;
-      padding: 30px;
-      box-shadow: 0 22px 55px rgba(0, 0, 0, 0.28);
-    }
+    /* ========================= */
+    /* CARDS */
+    /* ========================= */
 
-    .about p, .contact-box p {
-      color: #cbd5e1;
-      font-size: 1.08rem;
-    }
-
-    .certificates-list,
-    .works-list {
+    .certificates-list {
       display: flex;
       flex-direction: column;
       gap: 34px;
     }
 
-    .certificate-card,
-    .work-row {
+    .certificate-card {
+
       display: grid;
-      grid-template-columns: 380px 1fr;
+
+      grid-template-columns:
+        380px 1fr;
+
       gap: 30px;
-      align-items: stretch;
-      background: rgba(15, 23, 42, 0.82);
-      border: 1px solid rgba(148, 163, 184, 0.16);
+
+      background:
+        rgba(15, 23, 42, 0.82);
+
+      border:
+        1px solid rgba(148, 163, 184, 0.16);
+
       border-radius: 26px;
+
       padding: 24px;
-      box-shadow: 0 22px 55px rgba(0, 0, 0, 0.28);
-      transition: transform 0.25s ease, border-color 0.25s ease;
+
+      box-shadow:
+        0 22px 55px rgba(0,0,0,0.28);
+
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
     }
 
-    .certificate-card:hover,
-    .work-row:hover {
+    .certificate-card:hover {
       transform: translateY(-5px);
-      border-color: rgba(34, 197, 94, 0.55);
+
+      border-color:
+        rgba(34, 197, 94, 0.55);
     }
 
-    .certificate-image-link,
-    .work-image-link {
+    .certificate-image-link {
       display: block;
+
       border-radius: 20px;
+
       overflow: hidden;
-      border: 1px solid rgba(148, 163, 184, 0.18);
-      background: rgba(2, 6, 23, 0.6);
-      min-height: 255px;
+
+      min-height: 250px;
+
+      background:
+        rgba(2, 6, 23, 0.6);
     }
 
-    .certificate-image-link img,
-    .work-image-link img {
+    .certificate-image-link img {
       width: 100%;
       height: 100%;
-      min-height: 255px;
       object-fit: cover;
-      display: block;
-      transition: transform 0.28s ease, opacity 0.28s ease;
+
+      transition:
+        transform 0.28s ease,
+        opacity 0.28s ease;
     }
 
-    .certificate-image-link:hover img,
-    .work-image-link:hover img {
-      transform: scale(1.035);
+    .certificate-image-link:hover img {
+      transform: scale(1.03);
       opacity: 0.92;
     }
 
-    .certificate-content h3,
-    .work-content h3 {
-      font-size: 1.55rem;
-      color: #f8fafc;
+    .certificate-content h3 {
+      font-size: 1.6rem;
       margin-bottom: 10px;
     }
 
-    .certificate-meta,
-    .work-meta {
+    .certificate-meta {
       display: flex;
-      flex-wrap: wrap;
       gap: 10px;
+      flex-wrap: wrap;
       margin-bottom: 18px;
     }
 
-    .meta-item,
-    .pill {
+    .meta-item {
       color: #bbf7d0;
-      background: rgba(34, 197, 94, 0.10);
-      border: 1px solid rgba(34, 197, 94, 0.22);
+
+      background:
+        rgba(34, 197, 94, 0.10);
+
+      border:
+        1px solid rgba(34, 197, 94, 0.22);
+
       padding: 7px 11px;
+
       border-radius: 999px;
+
       font-size: 0.86rem;
     }
 
-    .certificate-block,
-    .work-block {
+    .certificate-block {
       margin-bottom: 16px;
     }
 
-    .certificate-block strong,
-    .work-block strong {
+    .certificate-block strong {
       display: block;
       color: #22c55e;
-      margin-bottom: 4px;
+      margin-bottom: 5px;
     }
 
-    .certificate-block p,
-    .work-block p,
-    .work-content p {
+    .certificate-block p {
       color: #cbd5e1;
     }
+
+    /* ========================= */
+    /* BUTTONS */
+    /* ========================= */
 
     .buttons {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
-      margin-top: 10px;
+      margin-top: 18px;
     }
 
     .btn {
-      display: inline-block;
       padding: 10px 14px;
+
       border-radius: 10px;
+
       font-size: 0.9rem;
+
       font-weight: bold;
-      transition: transform 0.2s ease, opacity 0.2s ease;
+
+      transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
     }
 
     .btn:hover {
@@ -309,251 +395,597 @@
     }
 
     .btn-secondary {
-      background: rgba(148, 163, 184, 0.14);
+      background:
+        rgba(148, 163, 184, 0.14);
+
+      border:
+        1px solid rgba(148, 163, 184, 0.20);
+
       color: #f8fafc;
-      border: 1px solid rgba(148, 163, 184, 0.20);
     }
 
-    .pill-list {
+    /* ========================= */
+    /* TESINA GALLERY */
+    /* ========================= */
+
+    .project-gallery {
       display: flex;
+      gap: 14px;
+      margin-top: 18px;
       flex-wrap: wrap;
-      gap: 10px;
     }
+
+    .project-gallery img {
+      width: 220px;
+
+      border-radius: 14px;
+
+      border:
+        1px solid rgba(148, 163, 184, 0.16);
+
+      transition: transform 0.25s ease;
+
+      background:
+        rgba(2, 6, 23, 0.5);
+    }
+
+    .project-gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    /* ========================= */
+    /* FOOTER */
+    /* ========================= */
 
     footer {
-      background: #020617;
-      color: #94a3b8;
       text-align: center;
-      padding: 28px;
-      border-top: 1px solid rgba(148, 163, 184, 0.16);
+
+      padding: 30px;
+
+      color: #94a3b8;
+
+      border-top:
+        1px solid rgba(148, 163, 184, 0.16);
     }
 
+    /* ========================= */
+    /* MOBILE */
+    /* ========================= */
+
     @media (max-width: 900px) {
-      .certificate-card,
-      .work-row {
+
+      .certificate-card {
         grid-template-columns: 1fr;
       }
+
     }
 
     @media (max-width: 600px) {
+
       nav a {
         display: block;
-        margin: 8px 0;
-      }
-
-      header {
-        min-height: auto;
-        padding: 80px 18px;
+        margin: 10px 0;
       }
 
       section {
         min-height: auto;
-        padding: 70px 18px;
       }
+
     }
+
   </style>
+
 </head>
+
 <body>
+
+  <!-- ========================= -->
+  <!-- NAVBAR -->
+  <!-- ========================= -->
 
   <nav>
     <a href="#inicio">Inicio</a>
     <a href="#sobre-mi">Sobre mí</a>
     <a href="#certificados">Certificaciones y Trabajos</a>
-    
-    <a href="#skills">Skills</a>
     <a href="#contacto">Contacto</a>
   </nav>
 
+
+  <!-- ========================= -->
+  <!-- HERO -->
+  <!-- ========================= -->
+
   <header id="inicio">
+
     <div class="hero reveal active">
-      <div class="tag">Portfolio digital verificable</div>
-      <h1>Ramiro <span>Moreno</span></h1>
-      <p>Estudiante avanzado de Ingeniería Industrial | Operaciones & Supply Chain | Data Analytics</p>
-      <div class="hero-buttons">
-        
-        <a class="btn btn-secondary" href="https://www.linkedin.com/in/ramironmoreno/" target="_blank">LinkedIn</a>
+
+      <div class="tag">
+        Portfolio digital verificable
       </div>
-      <a class="scroll-down" href="#sobre-mi">↓</a>
+
+      <h1>
+        Ramiro <span>Moreno</span>
+      </h1>
+
+      <p>
+        Estudiante avanzado de Ingeniería Industrial |
+        Operaciones & Supply Chain |
+        Data Analytics
+      </p>
+
+      <div class="hero-buttons">
+
+        <a
+          class="btn btn-secondary"
+          href="https://www.linkedin.com/in/ramironmoreno/"
+          target="_blank"
+        >
+          LinkedIn
+        </a>
+
+      </div>
+
+      <a class="scroll-down" href="#sobre-mi">
+        ↓
+      </a>
+
     </div>
+
   </header>
 
+
+  <!-- ========================= -->
+  <!-- SOBRE MI -->
+  <!-- ========================= -->
+
   <section id="sobre-mi">
+
     <div class="section-title reveal">
+
       <h2>Sobre mí</h2>
-      <p>Perfil profesional, experiencia actual y áreas de desarrollo.</p>
+
+      <p>
+        Perfil profesional, experiencia actual y áreas de desarrollo.
+      </p>
+
     </div>
 
     <div class="about reveal from-left">
+
       <p>
-        Soy estudiante avanzado de Ingeniería Industrial, con experiencia en operaciones, supply chain,
-        análisis de datos y mejora de procesos. Actualmente soy parte del equipo de Sales Operations en Stellantis Argentina.
-        Este repositorio digital reúne certificados, proyectos realizados, entregas académicas y trabajos individuales desarrollados durante mi formación.
+        Soy estudiante avanzado de Ingeniería Industrial,
+        con experiencia en operaciones, supply chain,
+        análisis de datos y mejora de procesos.
+
+        Actualmente soy parte del equipo de Sales Operations
+        en Stellantis Argentina.
+
+        Este repositorio digital reúne certificados,
+        proyectos realizados, entregas académicas
+        y trabajos individuales desarrollados
+        durante mi formación.
       </p>
+
     </div>
+
   </section>
 
+
+  <!-- ========================= -->
+  <!-- CERTIFICADOS -->
+  <!-- ========================= -->
+
   <section id="certificados">
+
     <div class="section-title reveal">
-      <h2>Certificaciones y Trabajos Individuales</h2>
-      <p>Certificaciones verificables, proyectos realizados y entregas individuales asociadas a cada formación.</p>
+
+      <h2>
+        Certificaciones y Trabajos Individuales
+      </h2>
+
+      <p>
+        Certificaciones verificables,
+        proyectos realizados y entregas individuales.
+      </p>
+
     </div>
 
+
     <div class="certificates-list">
+
+
+      <!-- ========================= -->
+      <!-- GAS Y PETROLEO -->
+      <!-- ========================= -->
+
       <article class="certificate-card reveal from-left">
-        <a class="certificate-image-link" href="https://validator.centrodeelearning.com/validator/HUpTfRQlTn" target="_blank">
-          <img src="imagenes/certificado-gas-petroleo.jpg" alt="Certificado Gas y Petróleo" />
+
+        <a
+          class="certificate-image-link"
+          href="https://validator.centrodeelearning.com/validator/HUpTfRQlTn"
+          target="_blank"
+        >
+
+          <img
+            src="imagenes/certificado-gas-petroleo.jpg"
+            alt="Gas y Petróleo"
+          />
+
         </a>
 
         <div class="certificate-content">
+
           <h3>Gas y Petróleo</h3>
 
           <div class="certificate-meta">
-            <span class="meta-item">Duración: 45 horas</span>
-            <span class="meta-item">Área: Oil & Gas</span>
-            <span class="meta-item">Certificado verificable</span>
+
+            <span class="meta-item">
+              Duración: 45 horas
+            </span>
+
+            <span class="meta-item">
+              Área: Oil & Gas
+            </span>
+
+            <span class="meta-item">
+              Certificado verificable
+            </span>
+
           </div>
 
           <div class="certificate-block">
-            <strong>Objetivo de aprendizaje</strong>
+
+            <strong>
+              Objetivo de aprendizaje
+            </strong>
+
             <p>
-              Incorporar conceptos técnicos fundamentales de la industria de gas y petróleo,
-              incluyendo nociones de exploración, producción, procesamiento y cadena de valor del sector energético.
+              Incorporar conceptos técnicos fundamentales
+              de la industria de gas y petróleo,
+              incluyendo nociones de exploración,
+              producción, procesamiento
+              y cadena de valor del sector energético.
             </p>
+
           </div>
 
           <div class="buttons">
-            <a class="btn btn-primary" href="https://validator.centrodeelearning.com/validator/HUpTfRQlTn" target="_blank">Verificar certificado</a>
+
+            <a
+              class="btn btn-primary"
+              href="https://validator.centrodeelearning.com/validator/HUpTfRQlTn"
+              target="_blank"
+            >
+              Verificar certificado
+            </a>
+
           </div>
+
         </div>
+
       </article>
 
+
+
+      <!-- ========================= -->
+      <!-- DATA ANALYTICS -->
+      <!-- ========================= -->
+
       <article class="certificate-card reveal from-right">
-        <a class="certificate-image-link" href="https://pub.coderhouse.com/legacy-certificates/686ec5b61c7c47d2df9f52fd" target="_blank">
-          <img src="imagenes/certificado-data-analytics.jpg" alt="Certificado Data Analytics" />
+
+        <a
+          class="certificate-image-link"
+          href="https://pub.coderhouse.com/legacy-certificates/686ec5b61c7c47d2df9f52fd"
+          target="_blank"
+        >
+
+          <img
+            src="imagenes/certificado-data-analytics.jpg"
+            alt="Data Analytics"
+          />
+
         </a>
 
         <div class="certificate-content">
+
           <h3>Data Analytics</h3>
 
           <div class="certificate-meta">
-            <span class="meta-item">Duración: 46 horas</span>
-            <span class="meta-item">Área: Data Analytics</span>
-            <span class="meta-item">Certificado verificable</span>
+
+            <span class="meta-item">
+              Duración: 46 horas
+            </span>
+
+            <span class="meta-item">
+              Área: Data Analytics
+            </span>
+
+            <span class="meta-item">
+              Certificado verificable
+            </span>
+
           </div>
 
           <div class="certificate-block">
-            <strong>Objetivo de aprendizaje</strong>
-            <p>
-              Aplicar herramientas de análisis de datos para transformar información en indicadores,
-              visualizaciones y conclusiones orientadas a la toma de decisiones, mediante el uso de Tableau, Excel y Power BI.
-            </p>
-          </div>
 
-          <div class="certificate-block">
-            <strong>Resultado / evidencia aplicada</strong>
+            <strong>
+              Objetivo de aprendizaje
+            </strong>
+
             <p>
-              Desarrollo de un proyecto final con análisis de datos, visualizaciones y presentación de resultados.
+              Aplicar herramientas de análisis de datos
+              para transformar información en indicadores,
+              visualizaciones y conclusiones orientadas
+              a la toma de decisiones,
+              mediante el uso de Tableau,
+              Excel y Power BI.
             </p>
+
           </div>
 
           <div class="buttons">
-            <a class="btn btn-primary" href="https://pub.coderhouse.com/legacy-certificates/686ec5b61c7c47d2df9f52fd" target="_blank">Verificar certificado</a>
-            <a class="btn btn-secondary" href="trabajos/entrega-final-data-analytics.pdf" target="_blank">Ver informe final en PDF</a>
-            <a class="btn btn-secondary" href="trabajos/tablero-power-bi.png" target="_blank">Ver tablero de control en Power BI</a>
-            <a class="btn btn-secondary" href="trabajos/tablero-excel.png" target="_blank">Ver tablero de control en Excel</a>
-            <a class="btn btn-secondary" href="trabajos/tablero-tableau.pdf" target="_blank">Ver tablero de control en Tableau</a>
+
+            <a
+              class="btn btn-primary"
+              href="https://pub.coderhouse.com/legacy-certificates/686ec5b61c7c47d2df9f52fd"
+              target="_blank"
+            >
+              Verificar certificado
+            </a>
+
+            <a
+              class="btn btn-secondary"
+              href="trabajos/entrega-final-data-analytics.pdf"
+              target="_blank"
+            >
+              Ver informe final en PDF
+            </a>
+
+            <a
+              class="btn btn-secondary"
+              href="trabajos/tablero-power-bi.png"
+              target="_blank"
+            >
+              Ver tablero de control en Power BI
+            </a>
+
+            <a
+              class="btn btn-secondary"
+              href="trabajos/tablero-excel.png"
+              target="_blank"
+            >
+              Ver tablero de control en Excel
+            </a>
+
+            <a
+              class="btn btn-secondary"
+              href="trabajos/tablero-tableau.pdf"
+              target="_blank"
+            >
+              Ver tablero de control en Tableau
+            </a>
+
           </div>
+
         </div>
+
       </article>
-    </div>
+
+
+
+      <!-- ========================= -->
+      <!-- TESINA -->
+      <!-- ========================= -->
 
       <article class="certificate-card reveal from-left">
-        <a class="certificate-image-link" href="#" target="_blank">
-          <img src="imagenes/valvex-logo.png" alt="Tesina Industrial" />
+
+        <a
+          class="certificate-image-link"
+          href="#"
+          target="_blank"
+        >
+
+          <img
+            src="imagenes/valvex-logo.png"
+            alt="Tesina Industrial"
+          />
+
         </a>
 
         <div class="certificate-content">
+
           <h3>Trabajo Tesina Industrial</h3>
 
           <div class="certificate-meta">
-            <span class="meta-item">Ingeniería Industrial</span>
-            <span class="meta-item">Proyecto integrador</span>
-            <span class="meta-item">Evaluación económica y financiera</span>
+
+            <span class="meta-item">
+              Ingeniería Industrial
+            </span>
+
+            <span class="meta-item">
+              Proyecto integrador
+            </span>
+
+            <span class="meta-item">
+              Evaluación económica y financiera
+            </span>
+
           </div>
 
           <div class="certificate-block">
+
             <strong>Objetivo</strong>
+
             <p>
-              Dimensionar comercialmente, técnicamente, económicamente y financieramente una empresa dedicada a la producción y comercialización de válvulas de acero inoxidable.
+              Dimensionar comercialmente,
+              técnicamente,
+              económicamente
+              y financieramente
+              una empresa dedicada
+              a la producción y comercialización
+              de válvulas de acero inoxidable.
             </p>
+
           </div>
 
-          <div class="buttons">
-            <a class="btn btn-secondary" href="#" target="_blank">Próximamente</a>
+
+          <!-- GALERIA -->
+
+          <div class="project-gallery">
+
+            <img
+              src="imagenes/valvulas.png"
+              alt="Valvulas"
+            >
+
+            <img
+              src="imagenes/layout-valvulas.png"
+              alt="Layout"
+            >
+
           </div>
+
+
+          <!-- BOTONES -->
+
+          <div class="buttons">
+
+            <a
+              class="btn btn-secondary"
+              href="https://evaluaciondeproyectos.com.ar/wiki/index.php?title=2025/Grupo6/DimensionamientoComercial"
+              target="_blank"
+            >
+              Ver dimensionamiento comercial
+            </a>
+
+            <a
+              class="btn btn-secondary"
+              href="https://evaluaciondeproyectos.com.ar/wiki/index.php?title=2025/Grupo6/DimensionamientoFisico"
+              target="_blank"
+            >
+              Ver dimensionamiento físico
+            </a>
+
+            <a
+              class="btn btn-secondary"
+              href="https://evaluaciondeproyectos.com.ar/wiki/index.php?title=2025/Grupo6/AnalisisRiesgo"
+              target="_blank"
+            >
+              Ver análisis de riesgo
+            </a>
+
+            <a
+              class="btn btn-secondary"
+              href="trabajos/dimensionamiento-economico-financiero.xlsx"
+              target="_blank"
+            >
+              Ver dimensionamiento económico-financiero
+            </a>
+
+          </div>
+
         </div>
+
       </article>
 
     </div>
+
   </section>
 
-  <section id="skills">
-    <div class="section-title reveal">
-      <h2>Skills y herramientas</h2>
-      <p>Herramientas y áreas de conocimiento que acompañan mi perfil profesional.</p>
-    </div>
 
-    <div class="skills-box reveal from-left">
-      <div class="pill-list">
-        <span class="pill">Excel</span>
-        <span class="pill">Power Query</span>
-        <span class="pill">Power BI</span>
-        <span class="pill">Data Analytics</span>
-        <span class="pill">KPIs</span>
-        <span class="pill">Supply Chain</span>
-        <span class="pill">Operaciones</span>
-        <span class="pill">Sales Operations</span>
-        <span class="pill">Mejora de procesos</span>
-        <span class="pill">Oil & Gas</span>
-      </div>
-    </div>
-  </section>
+
+  <!-- ========================= -->
+  <!-- CONTACTO -->
+  <!-- ========================= -->
 
   <section id="contacto">
+
     <div class="section-title reveal">
+
       <h2>Contacto</h2>
+
     </div>
 
     <div class="contact-box reveal from-right">
-      <p>Podés ver mi perfil profesional actualizado en LinkedIn y mi correo personal.</p>
+
+      <p>
+        Podés ver mi perfil profesional actualizado
+        en LinkedIn y mi correo personal.
+      </p>
+
       <div class="buttons">
-        <a class="btn btn-primary" href="https://www.linkedin.com/in/ramironmoreno/" target="_blank">Ir a LinkedIn</a>
-        <a class="btn btn-secondary" href="mailto:ramiromoreno66@gmail.com">ramiromoreno66@gmail.com</a>
+
+        <a
+          class="btn btn-primary"
+          href="https://www.linkedin.com/in/ramironmoreno/"
+          target="_blank"
+        >
+          Ir a LinkedIn
+        </a>
+
+        <a
+          class="btn btn-secondary"
+          href="mailto:ramiromoreno66@gmail.com"
+        >
+          ramiromoreno66@gmail.com
+        </a>
+
       </div>
+
     </div>
+
   </section>
 
+
+  <!-- ========================= -->
+  <!-- FOOTER -->
+  <!-- ========================= -->
+
   <footer>
-    <p>© 2026 Ramiro Moreno | Portfolio digital</p>
+
+    <p>
+      © 2026 Ramiro Moreno |
+      Portfolio digital
+    </p>
+
   </footer>
 
-  <script>
-    const revealElements = document.querySelectorAll('.reveal');
 
-    const observer = new IntersectionObserver((entries) => {
+
+  <!-- ========================= -->
+  <!-- REVEAL SCRIPT -->
+  <!-- ========================= -->
+
+  <script>
+
+    const revealElements =
+      document.querySelectorAll('.reveal');
+
+    const observer =
+      new IntersectionObserver((entries) => {
+
       entries.forEach((entry) => {
+
         if (entry.isIntersecting) {
           entry.target.classList.add('active');
-        } else {
+        }
+
+        else {
           entry.target.classList.remove('active');
         }
+
       });
+
     }, {
       threshold: 0.18
     });
 
-    revealElements.forEach((element) => observer.observe(element));
+    revealElements.forEach((element) =>
+      observer.observe(element)
+    );
+
   </script>
 
 </body>
+
 </html>
