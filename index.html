@@ -321,6 +321,52 @@
   padding: 25px;
 }
 
+.hero-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 320px;
+}
+
+.hero-image {
+  flex: 0 0 340px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+
+  width: 340px;
+  height: 340px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  border: 3px solid rgba(34, 197, 94, 0.45);
+
+  box-shadow:
+    0 0 35px rgba(34, 197, 94, 0.18);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.hero-image img:hover {
+
+  transform: scale(1.03);
+
+  box-shadow:
+    0 0 50px rgba(34, 197, 94, 0.28);
+
+}
     
     .certificate-image-link:hover img {
       transform: scale(1.03);
@@ -505,44 +551,65 @@
   <!-- HERO -->
   <!-- ========================= -->
 
-  <header id="inicio">
+ <header id="inicio">
 
-    <div class="hero reveal active">
+  <div class="hero reveal active">
 
-      <div class="tag">
-        Portfolio digital verificable
-      </div>
+    <div class="hero-layout">
 
-      <h1>
-        Ramiro <span>Moreno</span>
-      </h1>
+      <!-- TEXTO -->
 
-      <p>
-        Estudiante avanzado de Ingeniería Industrial |
-        Operaciones & Supply Chain |
-        Data Analytics
-      </p>
+      <div class="hero-text">
 
-      <div class="hero-buttons">
+        <div class="tag">
+          Portfolio digital verificable
+        </div>
 
-        <a
-          class="btn btn-secondary"
-          href="https://www.linkedin.com/in/ramironmoreno/"
-          target="_blank"
-        >
-          LinkedIn
+        <h1>
+          Ramiro <span>Moreno</span>
+        </h1>
+
+        <p>
+          Estudiante avanzado de Ingeniería Industrial |
+          Operaciones & Supply Chain |
+          Data Analytics
+        </p>
+
+        <div class="hero-buttons">
+
+          <a
+            class="btn btn-secondary"
+            href="https://www.linkedin.com/in/ramironmoreno/"
+            target="_blank"
+          >
+            LinkedIn
+          </a>
+
+        </div>
+
+        <a class="scroll-down" href="#sobre-mi">
+          ↓
         </a>
 
       </div>
 
-      <a class="scroll-down" href="#sobre-mi">
-        ↓
-      </a>
+
+      <!-- FOTO -->
+
+      <div class="hero-image">
+
+        <img
+          src="imagenes/ramiro-moreno.jpg"
+          alt="Ramiro Moreno"
+        />
+
+      </div>
 
     </div>
 
-  </header>
+  </div>
 
+</header>
 
   <!-- ========================= -->
   <!-- SOBRE MI -->
