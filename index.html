@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio | Ramiro Moreno</title>
+
   <style>
     * {
       box-sizing: border-box;
@@ -20,23 +21,48 @@
       background: #07111f;
       color: #f8fafc;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     a {
       color: inherit;
+      text-decoration: none;
+    }
+
+    nav {
+      background: rgba(7, 17, 31, 0.84);
+      backdrop-filter: blur(12px);
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: #e2e8f0;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: #22c55e;
     }
 
     header {
-      min-height: 92vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 80px 20px;
+      padding: 90px 20px;
       background:
-        radial-gradient(circle at top left, rgba(34, 197, 94, 0.20), transparent 35%),
-        radial-gradient(circle at bottom right, rgba(37, 99, 235, 0.22), transparent 35%),
+        radial-gradient(circle at top left, rgba(34, 197, 94, 0.22), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(37, 99, 235, 0.25), transparent 34%),
         #07111f;
       text-align: center;
+      position: relative;
     }
 
     .hero {
@@ -56,7 +82,7 @@
     }
 
     header h1 {
-      font-size: clamp(2.5rem, 7vw, 5.2rem);
+      font-size: clamp(2.8rem, 8vw, 5.8rem);
       line-height: 1.05;
       margin-bottom: 18px;
     }
@@ -66,10 +92,10 @@
     }
 
     header p {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       color: #cbd5e1;
-      max-width: 760px;
-      margin: 0 auto 28px;
+      max-width: 780px;
+      margin: 0 auto 30px;
     }
 
     .hero-buttons {
@@ -77,123 +103,196 @@
       justify-content: center;
       gap: 14px;
       flex-wrap: wrap;
+      margin-bottom: 42px;
     }
 
-    nav {
-      background: rgba(7, 17, 31, 0.88);
-      backdrop-filter: blur(10px);
-      padding: 15px;
-      text-align: center;
-      border-bottom: 1px solid rgba(148, 163, 184, 0.16);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+    .scroll-down {
+      color: #94a3b8;
+      font-size: 1.8rem;
+      animation: bounce 1.8s infinite;
+      display: inline-block;
     }
 
-    nav a {
-      margin: 0 15px;
-      color: #e2e8f0;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 0.95rem;
-    }
-
-    nav a:hover {
-      color: #22c55e;
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
     }
 
     section {
-      max-width: 1120px;
-      margin: 70px auto;
-      padding: 0 20px;
+      min-height: 100vh;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 95px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(70px) scale(0.96);
+      filter: blur(8px);
+      transition:
+        opacity 0.9s ease,
+        transform 0.9s ease,
+        filter 0.9s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    .reveal.from-left {
+      transform: translateX(-70px) scale(0.96);
+    }
+
+    .reveal.from-right {
+      transform: translateX(70px) scale(0.96);
+    }
+
+    .reveal.from-left.active,
+    .reveal.from-right.active {
+      transform: translateX(0) scale(1);
     }
 
     .section-title {
-      margin-bottom: 26px;
+      margin-bottom: 30px;
     }
 
     h2 {
-      font-size: 2rem;
+      font-size: clamp(2rem, 4vw, 3rem);
       margin-bottom: 8px;
       color: #f8fafc;
     }
 
     .section-title p {
       color: #94a3b8;
-      max-width: 760px;
+      max-width: 800px;
+      font-size: 1.05rem;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 22px;
-    }
-
-    .card, .about, .contact-box {
+    .about, .contact-box, .skills-box {
       background: rgba(15, 23, 42, 0.82);
       border: 1px solid rgba(148, 163, 184, 0.16);
-      border-radius: 20px;
-      padding: 22px;
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.24);
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 22px 55px rgba(0, 0, 0, 0.28);
     }
 
-    .card {
-      transition: transform 0.2s ease, border-color 0.2s ease;
+    .about p, .contact-box p {
+      color: #cbd5e1;
+      font-size: 1.08rem;
     }
 
-    .card:hover {
+    .certificates-list,
+    .works-list {
+      display: flex;
+      flex-direction: column;
+      gap: 34px;
+    }
+
+    .certificate-card,
+    .work-row {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 30px;
+      align-items: stretch;
+      background: rgba(15, 23, 42, 0.82);
+      border: 1px solid rgba(148, 163, 184, 0.16);
+      border-radius: 26px;
+      padding: 24px;
+      box-shadow: 0 22px 55px rgba(0, 0, 0, 0.28);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .certificate-card:hover,
+    .work-row:hover {
       transform: translateY(-5px);
       border-color: rgba(34, 197, 94, 0.55);
     }
 
-    .card img {
+    .certificate-image-link,
+    .work-image-link {
+      display: block;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      background: rgba(2, 6, 23, 0.6);
+      min-height: 255px;
+    }
+
+    .certificate-image-link img,
+    .work-image-link img {
       width: 100%;
-      height: 185px;
+      height: 100%;
+      min-height: 255px;
       object-fit: cover;
-      border-radius: 15px;
-      margin-bottom: 16px;
-      background: #111827;
-      border: 1px solid rgba(148, 163, 184, 0.16);
+      display: block;
+      transition: transform 0.28s ease, opacity 0.28s ease;
     }
 
-    .card h3 {
-      margin-bottom: 8px;
+    .certificate-image-link:hover img,
+    .work-image-link:hover img {
+      transform: scale(1.035);
+      opacity: 0.92;
+    }
+
+    .certificate-content h3,
+    .work-content h3 {
+      font-size: 1.55rem;
       color: #f8fafc;
-      font-size: 1.25rem;
+      margin-bottom: 10px;
     }
 
-    .card p, .about p, .contact-box p {
-      color: #cbd5e1;
-      margin-bottom: 16px;
-    }
-
-    .pill-list {
+    .certificate-meta,
+    .work-meta {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 18px;
+      margin-bottom: 18px;
     }
 
+    .meta-item,
     .pill {
       color: #bbf7d0;
       background: rgba(34, 197, 94, 0.10);
-      border: 1px solid rgba(34, 197, 94, 0.24);
+      border: 1px solid rgba(34, 197, 94, 0.22);
       padding: 7px 11px;
       border-radius: 999px;
-      font-size: 0.85rem;
+      font-size: 0.86rem;
+    }
+
+    .certificate-block,
+    .work-block {
+      margin-bottom: 16px;
+    }
+
+    .certificate-block strong,
+    .work-block strong {
+      display: block;
+      color: #22c55e;
+      margin-bottom: 4px;
+    }
+
+    .certificate-block p,
+    .work-block p,
+    .work-content p {
+      color: #cbd5e1;
     }
 
     .buttons {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
+      margin-top: 10px;
     }
 
     .btn {
       display: inline-block;
       padding: 10px 14px;
       border-radius: 10px;
-      text-decoration: none;
       font-size: 0.9rem;
       font-weight: bold;
       transition: transform 0.2s ease, opacity 0.2s ease;
@@ -215,13 +314,25 @@
       border: 1px solid rgba(148, 163, 184, 0.20);
     }
 
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
     footer {
       background: #020617;
       color: #94a3b8;
       text-align: center;
       padding: 28px;
-      margin-top: 70px;
       border-top: 1px solid rgba(148, 163, 184, 0.16);
+    }
+
+    @media (max-width: 900px) {
+      .certificate-card,
+      .work-row {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 600px) {
@@ -232,6 +343,11 @@
 
       header {
         min-height: auto;
+        padding: 80px 18px;
+      }
+
+      section {
+        min-height: auto;
         padding: 70px 18px;
       }
     }
@@ -240,119 +356,251 @@
 <body>
 
   <nav>
+    <a href="#inicio">Inicio</a>
     <a href="#sobre-mi">Sobre mí</a>
     <a href="#certificados">Certificados</a>
     <a href="#trabajos">Trabajos</a>
+    <a href="#skills">Skills</a>
     <a href="#contacto">Contacto</a>
   </nav>
 
-  <header>
-    <div class="hero">
+  <header id="inicio">
+    <div class="hero reveal active">
       <div class="tag">Portfolio digital verificable</div>
       <h1>Ramiro <span>Moreno</span></h1>
-      <p>
-        Estudiante avanzado de Ingeniería Industrial | Operaciones & Supply Chain | Data Analytics.
-      </p>
+      <p>Estudiante avanzado de Ingeniería Industrial | Operaciones & Supply Chain | Data Analytics</p>
       <div class="hero-buttons">
-        <a class="btn btn-primary" href="#certificados">Ver certificados</a>
+        <a class="btn btn-secondary" href="#trabajos">Ver trabajos</a>
         <a class="btn btn-secondary" href="https://www.linkedin.com/in/ramironmoreno/" target="_blank">LinkedIn</a>
       </div>
+      <a class="scroll-down" href="#sobre-mi">↓</a>
     </div>
   </header>
 
   <section id="sobre-mi">
-    <div class="section-title">
+    <div class="section-title reveal">
       <h2>Sobre mí</h2>
-      <p>Un resumen breve de mi perfil, intereses profesionales y herramientas de trabajo.</p>
+      <p>Perfil profesional, experiencia actual y áreas de desarrollo.</p>
     </div>
-    <div class="about">
+
+    <div class="about reveal from-left">
       <p>
         Soy estudiante avanzado de Ingeniería Industrial, con experiencia en operaciones, supply chain,
         análisis de datos y mejora de procesos. Actualmente soy parte del equipo de Sales Operations en Stellantis Argentina.
         Este repositorio digital reúne certificados, proyectos realizados, entregas académicas y trabajos individuales desarrollados durante mi formación.
       </p>
+    </div>
+  </section>
+
+  <section id="certificados">
+    <div class="section-title reveal">
+      <h2>Certificados</h2>
+      <p>Certificaciones con imagen clickeable y enlace de validación oficial.</p>
+    </div>
+
+    <div class="certificates-list">
+      <article class="certificate-card reveal from-left">
+        <a class="certificate-image-link" href="https://validator.centrodeelearning.com/validator/HUpTfRQlTn" target="_blank">
+          <img src="imagenes/certificado-gas-petroleo.jpg" alt="Certificado Gas y Petróleo" />
+        </a>
+
+        <div class="certificate-content">
+          <h3>Gas y Petróleo</h3>
+
+          <div class="certificate-meta">
+            <span class="meta-item">Duración: completar hs</span>
+            <span class="meta-item">Área: Oil & Gas</span>
+            <span class="meta-item">Certificado verificable</span>
+          </div>
+
+          <div class="certificate-block">
+            <strong>Objetivo de aprendizaje</strong>
+            <p>
+              Incorporar conceptos técnicos fundamentales de la industria de gas y petróleo,
+              incluyendo nociones de exploración, producción, procesamiento y cadena de valor del sector energético.
+            </p>
+          </div>
+
+          <div class="certificate-block">
+            <strong>Resultado / evidencia aplicada</strong>
+            <p>
+              Desarrollo de material de estudio y entregas asociadas a conocimientos técnicos del sector Oil & Gas.
+            </p>
+          </div>
+
+          <div class="buttons">
+            <a class="btn btn-primary" href="https://validator.centrodeelearning.com/validator/HUpTfRQlTn" target="_blank">Verificar certificado</a>
+            <a class="btn btn-secondary" href="trabajos/trabajo-final-gas-petroleo.pdf" target="_blank">Ver trabajo</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="certificate-card reveal from-right">
+        <a class="certificate-image-link" href="https://pub.coderhouse.com/legacy-certificates/686ec5b61c7c47d2df9f52fd" target="_blank">
+          <img src="imagenes/certificado-data-analytics.jpg" alt="Certificado Data Analytics" />
+        </a>
+
+        <div class="certificate-content">
+          <h3>Data Analytics</h3>
+
+          <div class="certificate-meta">
+            <span class="meta-item">Duración: completar hs</span>
+            <span class="meta-item">Área: Data Analytics</span>
+            <span class="meta-item">Certificado verificable</span>
+          </div>
+
+          <div class="certificate-block">
+            <strong>Objetivo de aprendizaje</strong>
+            <p>
+              Aplicar herramientas de análisis de datos para transformar información en indicadores,
+              visualizaciones y conclusiones orientadas a la toma de decisiones.
+            </p>
+          </div>
+
+          <div class="certificate-block">
+            <strong>Resultado / evidencia aplicada</strong>
+            <p>
+              Desarrollo de un proyecto final con análisis de datos, visualizaciones y presentación de resultados.
+            </p>
+          </div>
+
+          <div class="buttons">
+            <a class="btn btn-primary" href="https://pub.coderhouse.com/legacy-certificates/686ec5b61c7c47d2df9f52fd" target="_blank">Verificar certificado</a>
+            <a class="btn btn-secondary" href="trabajos/trabajo-final-data-analytics.pdf" target="_blank">Ver PDF</a>
+            <a class="btn btn-secondary" href="trabajos/base-data-analytics.xlsx" target="_blank">Ver Excel</a>
+            <a class="btn btn-secondary" href="trabajos/notebook-data-analytics.ipynb" target="_blank">Ver Notebook</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="trabajos">
+    <div class="section-title reveal">
+      <h2>Trabajos individuales</h2>
+      <p>Trabajos ubicados uno debajo del otro, con imagen a la izquierda y datos del proyecto a la derecha.</p>
+    </div>
+
+    <div class="works-list">
+      <article class="work-row reveal from-left">
+        <a class="work-image-link" href="trabajos/trabajo-final-data-analytics.pdf" target="_blank">
+          <img src="imagenes/trabajo-data-analytics.jpg" alt="Entrega final Data Analytics" />
+        </a>
+
+        <div class="work-content">
+          <h3>Trabajo Final - Data Analytics</h3>
+          <div class="work-meta">
+            <span class="meta-item">Power BI</span>
+            <span class="meta-item">Excel</span>
+            <span class="meta-item">Análisis de datos</span>
+          </div>
+
+          <div class="work-block">
+            <strong>Descripción</strong>
+            <p>Proyecto final desarrollado para aplicar análisis de datos, visualización y presentación de resultados.</p>
+          </div>
+
+          <div class="work-block">
+            <strong>Datos relacionados</strong>
+            <p>Espacio reservado para agregar objetivo, herramientas utilizadas, base de datos, tablero final, conclusiones y entregables.</p>
+          </div>
+
+          <div class="buttons">
+            <a class="btn btn-primary" href="trabajos/trabajo-final-data-analytics.pdf" target="_blank">Ver PDF</a>
+            <a class="btn btn-secondary" href="trabajos/base-data-analytics.xlsx" target="_blank">Ver Excel</a>
+            <a class="btn btn-secondary" href="trabajos/notebook-data-analytics.ipynb" target="_blank">Ver Notebook</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-row reveal from-right">
+        <a class="work-image-link" href="trabajos/trabajo-final-gas-petroleo.pdf" target="_blank">
+          <img src="imagenes/trabajo-gas-petroleo.jpg" alt="Entrega final Gas y Petróleo" />
+        </a>
+
+        <div class="work-content">
+          <h3>Trabajo Final - Gas y Petróleo</h3>
+          <div class="work-meta">
+            <span class="meta-item">Oil & Gas</span>
+            <span class="meta-item">Industria energética</span>
+            <span class="meta-item">Análisis técnico</span>
+          </div>
+
+          <div class="work-block">
+            <strong>Descripción</strong>
+            <p>Entrega relacionada con conocimientos técnicos del sector Oil & Gas.</p>
+          </div>
+
+          <div class="work-block">
+            <strong>Datos relacionados</strong>
+            <p>Espacio reservado para agregar temas vistos, resumen técnico, diagramas, conclusiones y entregables.</p>
+          </div>
+
+          <div class="buttons">
+            <a class="btn btn-primary" href="trabajos/trabajo-final-gas-petroleo.pdf" target="_blank">Ver trabajo</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-title reveal">
+      <h2>Skills y herramientas</h2>
+      <p>Herramientas y áreas de conocimiento que acompañan mi perfil profesional.</p>
+    </div>
+
+    <div class="skills-box reveal from-left">
       <div class="pill-list">
-        <span class="pill">Ingeniería Industrial</span>
-        <span class="pill">Supply Chain</span>
-        <span class="pill">Sales Operations</span>
-        <span class="pill">Power BI</span>
         <span class="pill">Excel</span>
+        <span class="pill">Power Query</span>
+        <span class="pill">Power BI</span>
         <span class="pill">Data Analytics</span>
+        <span class="pill">KPIs</span>
+        <span class="pill">Supply Chain</span>
+        <span class="pill">Operaciones</span>
+        <span class="pill">Sales Operations</span>
+        <span class="pill">Mejora de procesos</span>
         <span class="pill">Oil & Gas</span>
       </div>
     </div>
   </section>
 
-  <section id="certificados">
-    <div class="section-title">
-      <h2>Certificados</h2>
-      <p>Certificaciones con enlaces de validación para comprobar su autenticidad.</p>
-    </div>
-
-    <div class="grid">
-      <div class="card">
-        <img src="imagenes/certificado-gas-petroleo.jpg" alt="Certificado Gas y Petróleo" />
-        <h3>Gas y Petróleo</h3>
-        <p>Formación técnica vinculada a la industria de gas y petróleo.</p>
-        <div class="buttons">
-          <a class="btn btn-primary" href="https://validator.centrodeelearning.com/validator/HUpTfRQlTn" target="_blank">Verificar certificado</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="imagenes/certificado-data-analytics.jpg" alt="Certificado Data Analytics" />
-        <h3>Data Analytics</h3>
-        <p>Certificación orientada al análisis de datos, visualización y herramientas aplicadas.</p>
-        <div class="buttons">
-          <a class="btn btn-primary" href="https://pub.coderhouse.com/legacy-certificates/686ec5b61c7c47d2df9f52fd" target="_blank">Verificar certificado</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="trabajos">
-    <div class="section-title">
-      <h2>Trabajos individuales</h2>
-      <p>Archivos, notebooks, imágenes y entregas finales realizadas en cursos o proyectos académicos.</p>
-    </div>
-
-    <div class="grid">
-      <div class="card">
-        <img src="imagenes/trabajo-data-analytics.jpg" alt="Entrega final Data Analytics" />
-        <h3>Trabajo Final - Data Analytics</h3>
-        <p>Proyecto final desarrollado para aplicar análisis de datos, visualización y presentación de resultados.</p>
-        <div class="buttons">
-          <a class="btn btn-primary" href="trabajos/trabajo-final-data-analytics.pdf" target="_blank">Ver PDF</a>
-          <a class="btn btn-secondary" href="trabajos/base-data-analytics.xlsx" target="_blank">Ver Excel</a>
-          <a class="btn btn-secondary" href="trabajos/notebook-data-analytics.ipynb" target="_blank">Ver Notebook</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="imagenes/trabajo-gas-petroleo.jpg" alt="Entrega final Gas y Petróleo" />
-        <h3>Trabajo Final - Gas y Petróleo</h3>
-        <p>Entrega relacionada con conocimientos técnicos del sector Oil & Gas.</p>
-        <div class="buttons">
-          <a class="btn btn-primary" href="trabajos/trabajo-final-gas-petroleo.pdf" target="_blank">Ver trabajo</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section id="contacto">
-    <div class="section-title">
+    <div class="section-title reveal">
       <h2>Contacto</h2>
-      <p>Canal principal para conectar profesionalmente.</p>
     </div>
-    <div class="contact-box">
-      <p>Podés ver mi perfil profesional actualizado en LinkedIn.</p>
-      <a class="btn btn-primary" href="https://www.linkedin.com/in/ramironmoreno/" target="_blank">Ir a LinkedIn</a>
+
+    <div class="contact-box reveal from-right">
+      <p>Podés ver mi perfil profesional actualizado en LinkedIn y mi repositorio en GitHub.</p>
+      <div class="buttons">
+        <a class="btn btn-primary" href="https://www.linkedin.com/in/ramironmoreno/" target="_blank">Ir a LinkedIn</a>
+        <a class="btn btn-secondary" href="https://github.com/ramironmoreno" target="_blank">GitHub</a>
+      </div>
     </div>
   </section>
 
   <footer>
     <p>© 2026 Ramiro Moreno | Portfolio digital</p>
   </footer>
+
+  <script>
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        } else {
+          entry.target.classList.remove('active');
+        }
+      });
+    }, {
+      threshold: 0.18
+    });
+
+    revealElements.forEach((element) => observer.observe(element));
+  </script>
 
 </body>
 </html>
