@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Ramiro Moreno</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #f4f6f8;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #d1d5db;
+    }
+
+    nav {
+      background: white;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: #111827;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #2563eb;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #111827;
+      border-bottom: 3px solid #2563eb;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      background: #e5e7eb;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .card p {
+      color: #4b5563;
+      margin-bottom: 15px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 9px 13px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: white;
+    }
+
+    .btn-secondary {
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    .about {
+      background: white;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
+
+    footer {
+      background: #111827;
+      color: #d1d5db;
+      text-align: center;
+      padding: 25px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 8px 0;
+      }
+
+      header h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Ramiro Moreno</h1>
+    <p>Estudiante avanzado de Ingeniería Industrial | Operaciones | Supply Chain | Data Analytics</p>
+  </header>
+
+  <nav>
+    <a href="#sobre-mi">Sobre mí</a>
+    <a href="#certificados">Certificados</a>
+    <a href="#trabajos">Trabajos individuales</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <section id="sobre-mi">
+    <h2>Sobre mí</h2>
+    <div class="about">
+      <p>
+        Soy estudiante avanzado de Ingeniería Industrial, con interés en operaciones, supply chain,
+        análisis de datos y mejora de procesos. Este repositorio digital reúne certificados,
+        proyectos, entregas académicas y trabajos individuales desarrollados durante mi formación.
+      </p>
+    </div>
+  </section>
+
+  <section id="certificados">
+    <h2>Certificados</h2>
+    <div class="grid">
+
+      <div class="card">
+        <img src="imagenes/certificado-gas-petroleo.jpg" alt="Certificado Gas y Petróleo" />
+        <h3>Gas y Petróleo</h3>
+        <p>Certificado vinculado a formación técnica en la industria de gas y petróleo.</p>
+        <div class="buttons">
+          <a class="btn btn-primary" href="https://validator.centrodeelearning.com/validator/HUpTfRQlTn" target="_blank">Verificar certificado</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="imagenes/certificado-data-analytics.jpg" alt="Certificado Data Analytics" />
+        <h3>Data Analytics</h3>
+        <p>Certificación orientada al análisis de datos, visualización y herramientas aplicadas.</p>
+        <div class="buttons">
+          <a class="btn btn-primary" href="https://pub.coderhouse.com/legacy-certificates/686ec5b61c7c47d2df9f52fd" target="_blank">Verificar certificado</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="trabajos">
+    <h2>Trabajos individuales</h2>
+    <div class="grid">
+
+      <div class="card">
+        <img src="imagenes/trabajo-data-analytics.jpg" alt="Entrega final Data Analytics" />
+        <h3>Trabajo Final - Data Analytics</h3>
+        <p>Proyecto final desarrollado para aplicar análisis de datos, visualización y presentación de resultados.</p>
+        <div class="buttons">
+          <a class="btn btn-primary" href="trabajos/trabajo-final-data-analytics.pdf" target="_blank">Ver PDF</a>
+          <a class="btn btn-secondary" href="trabajos/base-data-analytics.xlsx" target="_blank">Ver Excel</a>
+          <a class="btn btn-secondary" href="trabajos/notebook-data-analytics.ipynb" target="_blank">Ver Notebook</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="imagenes/trabajo-gas-petroleo.jpg" alt="Entrega final Gas y Petróleo" />
+        <h3>Trabajo Final - Gas y Petróleo</h3>
+        <p>Entrega relacionada con conocimientos técnicos del sector Oil & Gas.</p>
+        <div class="buttons">
+          <a class="btn btn-primary" href="trabajos/trabajo-final-gas-petroleo.pdf" target="_blank">Ver trabajo</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <div class="about">
+      <p>
+        LinkedIn:
+        <a href="https://www.linkedin.com/in/ramironmoreno/" target="_blank">
+          linkedin.com/in/ramironmoreno
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Ramiro Moreno | Portfolio digital</p>
+  </footer>
+
+</body>
+</html>
