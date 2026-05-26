@@ -63,13 +63,66 @@
       text-align: center;
       padding: 80px 20px;
       background:
-        radial-gradient(circle at top left, rgba(34, 197, 94, 0.22), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(37, 99, 235, 0.24), transparent 30%),
+        radial-gradient(circle at top left,
+          rgba(34, 197, 94, 0.22),
+          transparent 30%),
+
+        radial-gradient(circle at bottom right,
+          rgba(37, 99, 235, 0.24),
+          transparent 30%),
+
         #07111f;
     }
 
     .hero {
       max-width: 900px;
+    }
+
+    .hero-layout {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 320px;
+    }
+
+    .hero-image {
+      flex: 0 0 340px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-image img {
+
+      width: 340px;
+      height: 340px;
+
+      object-fit: cover;
+
+      border-radius: 50%;
+
+      border: 3px solid rgba(34, 197, 94, 0.45);
+
+      box-shadow:
+        0 0 35px rgba(34, 197, 94, 0.18);
+
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .hero-image img:hover {
+
+      transform: scale(1.03);
+
+      box-shadow:
+        0 0 50px rgba(34, 197, 94, 0.28);
+
     }
 
     .tag {
@@ -98,47 +151,11 @@
       margin-bottom: 40px;
     }
 
-    .hero-layout {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 60px;
-      flex-wrap: wrap;
-    }
-
-    .hero-text {
-      flex: 1;
-      min-width: 320px;
-    }
-
-    .hero-image {
-      flex: 0 0 340px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .hero-image img {
-      width: 340px;
-      height: 340px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid rgba(34, 197, 94, 0.45);
-      box-shadow: 0 0 35px rgba(34, 197, 94, 0.18);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .hero-image img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 50px rgba(34, 197, 94, 0.28);
-    }
-
-    .hero-buttons,
-    .buttons {
+    .hero-buttons {
       display: flex;
       justify-content: center;
       gap: 14px;
       flex-wrap: wrap;
-      margin-top: 18px;
       margin-bottom: 35px;
     }
 
@@ -181,7 +198,10 @@
       opacity: 0;
       transform: translateY(70px) scale(0.96);
       filter: blur(8px);
-      transition: opacity 0.9s ease, transform 0.9s ease, filter 0.9s ease;
+      transition:
+        opacity 0.9s ease,
+        transform 0.9s ease,
+        filter 0.9s ease;
     }
 
     .reveal.active {
@@ -210,7 +230,8 @@
       border: 1px solid rgba(148, 163, 184, 0.16);
       border-radius: 24px;
       padding: 30px;
-      box-shadow: 0 22px 55px rgba(0,0,0,0.28);
+      box-shadow:
+        0 22px 55px rgba(0,0,0,0.28);
     }
 
     .about p,
@@ -225,13 +246,6 @@
       gap: 34px;
     }
 
-    .experience-divider {
-      color: #22c55e;
-      font-size: 1.2rem;
-      letter-spacing: 2px;
-      margin-bottom: 18px;
-    }
-
     .experience-header {
       display: flex;
       align-items: center;
@@ -240,14 +254,23 @@
     }
 
     .experience-logo {
+
       width: 68px;
       height: 68px;
+
       object-fit: cover;
+
       border-radius: 50%;
-      background: #ffffff;
+
+      background: white;
+
       padding: 5px;
-      border: 1px solid rgba(148, 163, 184, 0.22);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+
+      border:
+        1px solid rgba(148, 163, 184, 0.22);
+
+      box-shadow:
+        0 8px 20px rgba(0,0,0,0.25);
     }
 
     .experience-header h3 {
@@ -267,7 +290,8 @@
       font-size: 0.95rem;
     }
 
-    .experience-tags {
+    .experience-tags,
+    .certificate-meta {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
@@ -290,35 +314,59 @@
     }
 
     .certificate-card {
+
       display: grid;
-      grid-template-columns: 380px 1fr;
+
+      grid-template-columns:
+        380px 1fr;
+
       gap: 30px;
-      background: rgba(15, 23, 42, 0.82);
-      border: 1px solid rgba(148, 163, 184, 0.16);
+
+      background:
+        rgba(15, 23, 42, 0.82);
+
+      border:
+        1px solid rgba(148, 163, 184, 0.16);
+
       border-radius: 26px;
+
       padding: 24px;
-      box-shadow: 0 22px 55px rgba(0,0,0,0.28);
-      transition: transform 0.25s ease, border-color 0.25s ease;
+
+      box-shadow:
+        0 22px 55px rgba(0,0,0,0.28);
+
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
     }
 
     .certificate-card:hover {
       transform: translateY(-5px);
-      border-color: rgba(34, 197, 94, 0.55);
+
+      border-color:
+        rgba(34, 197, 94, 0.55);
     }
 
     .certificate-image-link {
       display: block;
+
       border-radius: 20px;
+
       overflow: hidden;
+
       min-height: 250px;
-      background: rgba(2, 6, 23, 0.6);
+
+      background:
+        rgba(2, 6, 23, 0.6);
     }
 
     .certificate-image-link img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.28s ease, opacity 0.28s ease;
+      transition:
+        transform 0.28s ease,
+        opacity 0.28s ease;
     }
 
     .certificate-image-link:hover img {
@@ -340,19 +388,19 @@
       margin-bottom: 10px;
     }
 
-    .certificate-meta {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 18px;
-    }
-
     .meta-item {
       color: #bbf7d0;
-      background: rgba(34, 197, 94, 0.10);
-      border: 1px solid rgba(34, 197, 94, 0.22);
+
+      background:
+        rgba(34, 197, 94, 0.10);
+
+      border:
+        1px solid rgba(34, 197, 94, 0.22);
+
       padding: 7px 11px;
+
       border-radius: 999px;
+
       font-size: 0.86rem;
     }
 
@@ -370,12 +418,25 @@
       color: #cbd5e1;
     }
 
+    .buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
     .btn {
       padding: 10px 14px;
+
       border-radius: 10px;
+
       font-size: 0.9rem;
+
       font-weight: bold;
-      transition: transform 0.2s ease, opacity 0.2s ease;
+
+      transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
     }
 
     .btn:hover {
@@ -389,8 +450,12 @@
     }
 
     .btn-secondary {
-      background: rgba(148, 163, 184, 0.14);
-      border: 1px solid rgba(148, 163, 184, 0.20);
+      background:
+        rgba(148, 163, 184, 0.14);
+
+      border:
+        1px solid rgba(148, 163, 184, 0.20);
+
       color: #f8fafc;
     }
 
@@ -403,10 +468,16 @@
 
     .project-gallery img {
       width: 220px;
+
       border-radius: 14px;
-      border: 1px solid rgba(148, 163, 184, 0.16);
+
+      border:
+        1px solid rgba(148, 163, 184, 0.16);
+
       transition: transform 0.25s ease;
-      background: rgba(2, 6, 23, 0.5);
+
+      background:
+        rgba(2, 6, 23, 0.5);
     }
 
     .project-gallery img:hover {
@@ -415,23 +486,25 @@
 
     footer {
       text-align: center;
+
       padding: 30px;
+
       color: #94a3b8;
-      border-top: 1px solid rgba(148, 163, 184, 0.16);
+
+      border-top:
+        1px solid rgba(148, 163, 184, 0.16);
     }
 
     @media (max-width: 900px) {
+
       .certificate-card {
         grid-template-columns: 1fr;
       }
 
-      .hero-layout {
-        justify-content: center;
-        text-align: center;
-      }
     }
 
     @media (max-width: 600px) {
+
       nav a {
         display: block;
         margin: 10px 0;
@@ -441,9 +514,6 @@
         min-height: auto;
       }
 
-      .experience-header {
-        align-items: flex-start;
-      }
     }
 
   </style>
@@ -456,7 +526,7 @@
     <a href="#inicio">Inicio</a>
     <a href="#sobre-mi">Sobre mí</a>
     <a href="#experiencia">Experiencia</a>
-    <a href="#certificados">Certificaciones y Trabajos</a>
+    <a href="#certificados">Certificaciones</a>
     <a href="#contacto">Contacto</a>
   </nav>
 
@@ -478,7 +548,7 @@
 
           <p>
             Estudiante avanzado de Ingeniería Industrial |
-            Operaciones & Supply Chain |
+            Operaciones |
             Data Analytics
           </p>
 
@@ -531,7 +601,7 @@
 
       <p>
         Soy estudiante avanzado de Ingeniería Industrial,
-        con experiencia en operaciones, supply chain,
+        con experiencia en operaciones,
         análisis de datos y mejora de procesos.
 
         Actualmente soy parte del equipo de Sales Operations
@@ -554,7 +624,7 @@
       <h2>Mi experiencia laboral</h2>
 
       <p>
-        Experiencia profesional, responsabilidades principales e industrias en las que me desarrollé.
+        Experiencia profesional, responsabilidades principales e industrias.
       </p>
 
     </div>
@@ -563,13 +633,11 @@
 
       <article class="experience-item reveal from-left">
 
-        </div>
-
         <div class="experience-header">
 
           <img
             src="imagenes/stellantis.jpg"
-            alt="Stellantis Argentina"
+            alt="Stellantis"
             class="experience-logo"
           />
 
@@ -591,17 +659,28 @@
 
         <div class="experience-tags">
 
-          <span class="meta-item">Industria Automotriz</span>
-          <span class="meta-item">Sales Operations</span>
-          <span class="meta-item">Data Analytics</span>
-          <span class="meta-item">Power BI</span>
+          <span class="meta-item">
+            Industria Automotriz
+          </span>
+
+          <span class="meta-item">
+            Sales Operations
+          </span>
+
+          <span class="meta-item">
+            Data Analytics
+          </span>
+
+          <span class="meta-item">
+            Power BI
+          </span>
 
         </div>
 
         <ul>
 
           <li>
-            Creación y seguimiento de órdenes de producción entre áreas comerciales y operativas para grupos PSA y FCA.
+            Creación y seguimiento de órdenes de producción entre áreas comerciales y operativas para PSA y FCA.
           </li>
 
           <li>
@@ -621,7 +700,6 @@
       </article>
 
       <article class="experience-item reveal from-right">
-        </div>
 
         <div class="experience-header">
 
@@ -649,12 +727,29 @@
 
         <div class="experience-tags">
 
-          <span class="meta-item">Industria Textil</span>
-          <span class="meta-item">Supply Chain</span>
-          <span class="meta-item">Procesos</span>
-          <span class="meta-item">Compras</span>
-          <span class="meta-item">Power BI</span>
-          <span class="meta-item">Normas ISO</span>
+          <span class="meta-item">
+            Industria Textil
+          </span>
+
+          <span class="meta-item">
+            Supply Chain
+          </span>
+
+          <span class="meta-item">
+            Procesos
+          </span>
+
+          <span class="meta-item">
+            Compras
+          </span>
+
+          <span class="meta-item">
+            Power BI
+          </span>
+
+          <span class="meta-item">
+            Normas ISO
+          </span>
 
         </div>
 
@@ -705,6 +800,8 @@
 
     <div class="certificates-list">
 
+      <!-- GAS Y PETROLEO -->
+
       <article class="certificate-card reveal from-left">
 
         <a
@@ -748,10 +845,7 @@
 
             <p>
               Incorporar conceptos técnicos fundamentales
-              de la industria de gas y petróleo,
-              incluyendo nociones de exploración,
-              producción, procesamiento
-              y cadena de valor del sector energético.
+              de la industria de gas y petróleo.
             </p>
 
           </div>
@@ -771,6 +865,8 @@
         </div>
 
       </article>
+
+      <!-- DATA ANALYTICS -->
 
       <article class="certificate-card reveal from-right">
 
@@ -815,10 +911,7 @@
 
             <p>
               Aplicar herramientas de análisis de datos
-              para transformar información en indicadores,
-              visualizaciones y conclusiones orientadas
-              a la toma de decisiones,
-              mediante el uso de Tableau,
+              mediante Tableau,
               Excel y Power BI.
             </p>
 
@@ -834,43 +927,13 @@
               Verificar certificado
             </a>
 
-            <a
-              class="btn btn-secondary"
-              href="trabajos/entrega-final-data-analytics.pdf"
-              target="_blank"
-            >
-              Ver informe final en PDF
-            </a>
-
-            <a
-              class="btn btn-secondary"
-              href="trabajos/tablero-power-bi.png"
-              target="_blank"
-            >
-              Ver tablero de control en Power BI
-            </a>
-
-            <a
-              class="btn btn-secondary"
-              href="trabajos/tablero-excel.png"
-              target="_blank"
-            >
-              Ver tablero de control en Excel
-            </a>
-
-            <a
-              class="btn btn-secondary"
-              href="trabajos/tablero-tableau.pdf"
-              target="_blank"
-            >
-              Ver tablero de control en Tableau
-            </a>
-
           </div>
 
         </div>
 
       </article>
+
+      <!-- VALVEX -->
 
       <article class="certificate-card reveal from-left">
 
@@ -883,15 +946,14 @@
           <img
             class="tesina-logo"
             src="imagenes/valvex-logo.jpg"
-            alt="Tesina Industrial"
+            alt="Valvex"
           />
 
         </a>
 
         <div class="certificate-content">
 
-          <h3>Trabajo Integrador Anual - Tesina Industrial</h3>
-          <h3>Valvex</h3>
+          <h3>Trabajo Integrador Anual - Valvex</h3>
 
           <div class="certificate-meta">
 
@@ -907,21 +969,16 @@
               Evaluación económica y financiera
             </span>
 
-            <span class="meta-item">
-              Análisis de mercados
-            </span>
-
           </div>
 
           <div class="certificate-block">
 
-            <strong>Objetivo</strong>
+            <strong>
+              Objetivo
+            </strong>
 
             <p>
-              Dimensionar comercialmente, técnicamente, económicamente y financieramente una empresa dedicada
-              a la producción y comercialización de válvulas de acero inoxidable. El trabajo abarca el análisis del mercado,
-              estimación de ventas por año, desarrollo del proceso productivo junto a la maquinaria óptima, y estimación
-              y análisis de indicadores económico-financieros como EBITDA, ROI, Payback, TIR, TOR y VAN, entre otros.
+              Dimensionamiento comercial, técnico y económico-financiero de una empresa dedicada a la producción de válvulas industriales.
             </p>
 
           </div>
@@ -930,7 +987,7 @@
 
             <img
               src="imagenes/valvula.jpg"
-              alt="Válvulas"
+              alt="Valvulas"
             >
 
             <img
@@ -947,111 +1004,92 @@
               href="https://evaluaciondeproyectos.com.ar/wiki/index.php?title=2025/Grupo6/DimensionamientoComercial"
               target="_blank"
             >
-              Ver Dimensionamiento Comercial
-            </a>
-
-            <a
-              class="btn btn-secondary"
-              href="https://evaluaciondeproyectos.com.ar/wiki/index.php?title=2025/Grupo6/DimensionamientoFisico"
-              target="_blank"
-            >
-              Ver Dimensionamiento Técnico
-            </a>
-
-            <a
-              class="btn btn-secondary"
-              href="https://evaluaciondeproyectos.com.ar/wiki/index.php?title=2025/Grupo6/AnalisisRiesgo"
-              target="_blank"
-            >
-              Ver Dimensionamiento de Riesgos
-            </a>
-
-            <a
-              class="btn btn-secondary"
-              href="trabajos/dimensionamiento-economico-financiero.xlsx"
-              target="_blank"
-            >
-              Descargar Dimensionamiento Económico-Financiero en Excel
+              Ver Proyecto
             </a>
 
           </div>
 
         </div>
 
-        </article>
+      </article>
+
+      <!-- PPS -->
 
       <article class="certificate-card reveal from-right">
 
-  <a
-    class="certificate-image-link"
-    href="trabajos/pps.pdf"
-    target="_blank"
-  >
+        <a
+          class="certificate-image-link"
+          href="trabajos/pps.pdf"
+          target="_blank"
+        >
 
-    <img
-      src="imagenes/marshall.jpg"
-      alt="Práctica Profesional Supervisada"
-    />
+          <img
+            src="imagenes/marshall2.jpg"
+            alt="Práctica Profesional Supervisada"
+          />
 
-  </a>
+        </a>
 
-  <div class="certificate-content">
+        <div class="certificate-content">
 
-    <h3>Práctica Profesional Supervisada</h3>
+          <h3>Práctica Profesional Supervisada</h3>
 
-    <div class="certificate-meta">
+          <div class="certificate-meta">
 
-      <span class="meta-item">
-        Ingeniería Industrial
-      </span>
+            <span class="meta-item">
+              Ingeniería Industrial
+            </span>
 
-      <span class="meta-item">
-        Mejora de procesos
-      </span>
+            <span class="meta-item">
+              Mejora de procesos
+            </span>
 
-      <span class="meta-item">
-        Experiencia profesional
-      </span>
+            <span class="meta-item">
+              Experiencia profesional
+            </span>
 
-    </div>
+          </div>
 
-    <div class="certificate-block">
+          <div class="certificate-block">
 
-      <strong>Objetivo</strong>
+            <strong>
+              Objetivo
+            </strong>
 
-      <p>
-        Desarrollar una oportunidad de mejora en un sector de la empresa
-        en la que me desempeñaba profesionalmente, orientada a optimizar
-        actividades y mejorar procesos.
-      </p>
+            <p>
+              Desarrollar una oportunidad de mejora en un sector de la empresa en la que me desempeñaba profesionalmente, orientada a optimizar actividades y mejorar procesos.
+            </p>
 
-    </div>
+          </div>
 
-    <div class="certificate-block">
+          <div class="certificate-block">
 
-      <strong>Resultados</strong>
+            <strong>
+              Resultados
+            </strong>
 
-      <p>
-        La propuesta permitió aumentar la eficacia del sector en un 30%,
-        estandarizar actividades, mejorar el control operativo y optimizar
-        el aprovechamiento del espacio de trabajo.
-      </p>
+            <p>
+              La propuesta permitió aumentar la eficacia del sector en un 30%, estandarizar actividades, mejorar el control operativo y optimizar el aprovechamiento del espacio de trabajo.
+            </p>
 
-    </div>
+          </div>
 
-    <div class="buttons">
+          <div class="buttons">
 
-      <a
-        class="btn btn-secondary"
-        href="trabajos/pps.pdf"
-        target="_blank"
-      >
-        Ver Práctica Profesional en PDF
-      </a>
+            <a
+              class="btn btn-secondary"
+              href="trabajos/pps.pdf"
+              target="_blank"
+            >
+              Ver Práctica Profesional en PDF
+            </a>
 
-    </div>
+          </div>
 
-</article>
+        </div>
+
+      </article>
+
     </div>
 
   </section>
@@ -1068,7 +1106,7 @@
 
       <p>
         Podés ver mi perfil profesional actualizado
-        en LinkedIn. O bien, contactarme a través de mi correo personal.
+        en LinkedIn o contactarme por correo.
       </p>
 
       <div class="buttons">
@@ -1111,21 +1149,21 @@
     const observer =
       new IntersectionObserver((entries) => {
 
-        entries.forEach((entry) => {
+      entries.forEach((entry) => {
 
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-          }
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
 
-          else {
-            entry.target.classList.remove('active');
-          }
+        else {
+          entry.target.classList.remove('active');
+        }
 
-        });
-
-      }, {
-        threshold: 0.18
       });
+
+    }, {
+      threshold: 0.18
+    });
 
     revealElements.forEach((element) =>
       observer.observe(element)
